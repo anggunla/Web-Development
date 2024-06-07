@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="styles.css">
+    <title>Ujian Tengah Semester Prak Web Programming</title>
+</head>
+<body>
+    <div class="header">
+        <p><b>Ini adalah Ujian Tengah Semester Pemrograman Web. Klik ini untuk ke laman Fakultas Ilmu Komputer UPN Veteran Jakarta -></b></p>
+    </div>
+    <header>
+        <div class="center-content">
+            <img src="LogoUpnvj.png" alt="Deskripsi Gambar">
+            <p><b>Sistem Peminatan Fakultas Ilmu Komputer Universitas Pembangunan Nasional Veteran Jakarta.</b></p>
+        </div>
+    </header>
+
+    <main>
+        <div class="kiri">
+            <img src="FIK.png" alt="Deskripsi Gambar" style="width: 50%;">
+            <h3><span class="navi-text"> Selamat Datang pada 
+                 Sistem Peminatan Keahlian </span>
+                <span class="orange-text">Fakultas Ilmu Komputer</span>
+                <span class="blue-text">UPN Veteran Jakarta</span>
+            </h3>
+        </div>
+        <div class="contain">
+            <p>Sistem ini untuk sebagai tolak ukur pemahaman diri saya terhadap materi pemrograman web</p>
+        </div>
+        <div class="button-container">
+            <a href="Formpengisian.html" target="_blank"><button class="button-aplikasi">Mulai Mengisi Peminatan</button></a>
+            <button class="button-daftar-diri" onclick="openPopup()">Daftar Diri</button>
+        </div>
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <img src="LogoUpnvj.png" alt="Deskripsi Logo"  class="logo">
+                <h1><span>Daftar Diri Mahasiswa UPN Veteran Jakarta</span></h1>
+                <br>
+                <h2><span class="abu-text">Mahasiswa Sistem Informasi Ilmu Komputer</span></h2>
+                <p><b>Nama          : Anggun Febrianti</b></p>
+                <p><b>NIM           : 2210512131</b></p>
+                <p><b>Program Studi : S1 Sistem Informasi</b></p>
+                <br>
+                <br>
+                <p>"Semoga sistem ini berguna" <b>- Anggun</b></p>
+                
+            </div>
+        </div>
+    
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

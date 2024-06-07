@@ -1,0 +1,194 @@
+/* CSS Dasar */
+body {
+    margin: 0;
+}
+
+.header {
+    background-color: navy;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 1000;
+    padding: 3px 20px;
+    color: white;
+    text-align: center;
+}
+
+.center-content {
+    color: rgb(0, 204, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-content img {
+    margin-right: 10px;
+    width: 40px;
+}
+
+.kiri {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 33px;
+    margin-top: -30px;
+    padding: 10px 3.5cm;
+}
+
+.kiri img {
+    float: right;
+    margin-left: 0;
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+}
+
+.navi-text {
+    color: navy;
+}
+
+.orange-text {
+    color: orange;
+}
+
+.blue-text {
+    color: blue;
+}
+.abu-text{
+    color: #888;
+}
+
+.contain {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-top: -50px;
+    padding: 5px 3.5cm;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 0 3.5cm;
+    color: white;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Media queries untuk responsif */
+@media screen and (max-width: 768px) {
+    .kiri,
+    .contain,
+    button {
+        padding: 5px;
+        margin: 0;
+    }
+}
+
+
+/* Button Aplikasi (biru) */
+.button-aplikasi {
+    background-color: #007bff;
+    margin-right: 0cm; /* Menggeser tombol ke kanan sejauh 1cm */
+}
+
+
+.button-aplikasi:hover {
+    background-color: #0056b3;
+}
+
+.button-daftar-diri {
+    background-color: white;
+    color: black; /* Mengubah warna teks menjadi hitam */
+    border: 1px solid black; /* Menambahkan garis luar hitam */
+    margin-left: 1px;
+}
+
+.button-daftar-diri:hover {
+    background-color: #ff5722;
+    color: white; /* Mengubah warna teks menjadi putih saat dihover */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Transparan untuk latar belakang */
+    z-index: 1;
+}
+
+.popup-content img{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.logo{
+    float: right;
+    margin-left: 0px;
+    margin-top: 0px;
+    display: block;
+    padding: 15px;
+    width: 20px;
+    height: auto;
+}
+.popup-content {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.popup-content h1{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: rgb(4, 4, 83);
+}
+
+.popup-content h2{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.popup-content p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #888;
+}
+.popup-content p:last-child {
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Peminatan</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div >
+        <fieldset>
+            <legend>Hasil Pengujian Peminatan Mahasiswa</legend>
+            <div style="display: flex; justify-content: center; align-items: end;">
+                <p>UPN Veteran Jakarta</p>
+                <img src="LogoUpnvj.png" alt="logo" width="50px" height="50px">
+            </div>
+            <div>
+                <p class="no-margin" id="nim"></p>
+                <p class="no-margin" id="nama"></p>
+                <p class="no-margin" id="lab"></p>
+                <p class="no-margin" id="tahunmasuk"></p>
+                <br>
+                <div>
+                    <p>Matakuliah yang di pilih: </p>
+                    <ul id="matakuliah">
+                    </ul>
+                </div>
+            </div>
+        </fieldset>
+        <div style="text-align: end;">
+            <a href="Formpengisian.html"><button>Kembali</button></a>
+        </div>
+    </div>
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var nim = urlParams.get("nim");
+        var nama = urlParams.get("nama");
+        var semester = urlParams.get("semester");
+        var prodi = urlParams.get("prodi");
+        var mk = urlParams.get("mk");
+
+        mk = mk.split(',')
+        prodi = prodi === 'if' ? 'S1 Informatika' : prodi === 'si' ? 'S1 Sistem Informasi' : 'D3 Sistem Informasi'
+
+        class Semester {
+            constructor(semester) {
+                this.semester = semester;
+            }
+
+            convertToYear() {
+                const currentYear = new Date().getFullYear();
+                const year = currentYear - Math.ceil(this.semester / 2);
+                return year;
+            }
+        }
+
+        var tahunMasuk = new Semester(semester);
+        tahunMasuk = tahunMasuk.convertToYear();
+
+        var nimText = document.getElementById('nim');
+        var namaText = document.getElementById('nama');
+        var prodiText = document.getElementById('lab');
+        var semesterText = document.getElementById('tahunmasuk');
+        var listMatakuliah = document.getElementById('matakuliah');
+
+        nimText.innerHTML = `Nim: <b>${nim}</b>`;
+        namaText.innerHTML = `Nama: <b>${nama}</b>`;
+        prodiText.innerHTML = `Lab: <b>${prodi}</b>`;
+        semesterText.innerHTML = `Tahun Masuk: <b>${tahunMasuk}</b>`;
+
+        mk.forEach(element => {
+            var newListItem = document.createElement('li');
+            newListItem.textContent = element;
+
+            listMatakuliah.appendChild(newListItem);
+        });
+    </script>
+</body>
+
+</html>

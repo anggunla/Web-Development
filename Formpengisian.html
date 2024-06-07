@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pengisian Peminatan - Form</title>
+    <!-- STYLE -->
+    <link rel="icon" href="LOGO UPNVJ.png">
+    <style>
+    .login{
+         max-width: 400px;
+        max-height: 600px;
+        margin: 15px auto;
+        border-radius: 5px;}
+        .login-header {
+        padding: 15px;
+        text-align: center;
+        color: rgb(241, 241, 241);
+        background-color: #278efc;
+        font-size: 10px;
+      }
+      .login-body {
+        padding: 20px;
+        background-color: #ececec;
+      }
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 95%;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      button {
+        width: 95%;
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2584e9;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      button:hover {
+        background-color: #0064ce;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <div class="login-header">
+            <h2>FORM PENGISIAN PEMINATAN KEAHLIAN FAKULTAS ILMU KOMPUTER UPN VETERAN JAKARTA</h2>
+            <img src="LogoUpnvj.png" alt="logo" width="50px" height="50px">
+        </div>
+        <div class="login-body">
+            <form id="form" action="" method="post">
+
+                <input id="nim" type="text" placeholder="NIM Mahasiswa" required>
+                <input id="nama" type="text" placeholder="Nama Mahasiswa" required>
+                <input id="smstr" type="text" placeholder="Semester Mahasiswa" required>
+                <label for="prodi">Pilih Program Studi:</label>
+                <select name="prodi" id="prodi" required>
+                    <option disabled selected value>Pilih Program Studi</option>
+                    <option value="if">S1 Informatika</option>
+                    <option value="si">S1 Sistem Informasi</option>
+                    <option value="d3si">D3 Sistem Informasi</option>
+                </select>
+
+                <fieldset id="minat-S1-IF" style="display: none;">
+                    <legend><label>Peminatan Mahasiswa S1 Informatika</label></legend>
+                    <table>
+                        <tr>
+                            <td><label for="DS">Data Science</label></td>
+                            <td><input type="checkbox" id="minat" name="minat" value="Data Science" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="SE">Software Engineer</label></td>
+                            <td><input type="checkbox" id="minat" name="minat" value="Software Engineer" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="CS">Cybersecurity</label></td>
+                            <td><input type="checkbox" id="minat" name="minat" value="Cybersecurity" /></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <fieldset id="minat-S1-SI" style="display: none;">
+                    <legend><label>Peminatan Mahasiswa S1 Sistem Informasi</label></legend>
+                    <table>
+                        <tr>
+                            <td><label for="SA">Data Analyst</label></td>
+                            <td><input type="checkbox" id="minat" name="minat" value="Data Analyst" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="UI">UI/UX</label></td>
+                            <td><input type="checkbox" id="minat" name="minat" value="UI/UX" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="AU">Audit</label></td>
+                            <td><input type="checkbox" id="minat" name="minat" value="Audit" /></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <fieldset id="minat-D3-SI" style="display: none;">
+                    <legend><label>Peminatan Mahasiswa D3 Sistem Informasi</label></legend>
+                    <table>
+                        <tr>
+                            <td><label for="MB">Mobile Programmer</label></td>
+                            <td><input type="checkbox" id="minat" name="minat" value="Mobile Programmer" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="WD">Web Developer</label></td>
+                            <td><input type="checkbox" id="minat" name="minat" value="Web Developer" /></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <button class="btn" type="submit">Submit</button>
+                <button type="button" name="btn-back" onclick="if(confirm('Anda Yakin Keluar\nPilih OK untuk keluar atau Cancel untuk tetap di Data Diri.')){window.close();}">Kembali Ke Home</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('prodi').addEventListener('change', function () {
+            var selectedOption = this.value;
+            var targetIF = document.getElementById('minat-S1-IF');
+            var targetSI = document.getElementById('minat-S1-SI');
+            var targetD3SI = document.getElementById('minat-D3-SI');
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+
+            if (selectedOption === 'if') {
+                targetIF.style.display = 'block';
+                targetSI.style.display = 'none';
+                targetD3SI.style.display = 'none';
+            }
+            else if (selectedOption === 'si') {
+                targetIF.style.display = 'none';
+                targetSI.style.display = 'block';
+                targetD3SI.style.display = 'none';
+            }
+            else if (selectedOption === 'd3si') {
+                targetIF.style.display = 'none';
+                targetSI.style.display = 'none';
+                targetD3SI.style.display = 'block';
+            }
+            else {
+                targetIF.style.display = 'none';
+                targetSI.style.display = 'none';
+                targetD3SI.style.display = 'none';
+            }
+        });
+
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var nama = document.getElementById('nama');
+            var nim = document.getElementById('nim');
+            var smstr = document.getElementById('smstr');
+            var prodi = document.getElementById('prodi');
+
+            var validasiAngka = /^[0-9]+$/;
+            var validasiHuruf = /^[a-zA-Z ]+$/;
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var checkedValues = [];
+
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    checkedValues.push(checkbox.value);
+                }
+            });
+
+            if (checkedValues.length > 0) {
+                if (nama.value.match(validasiHuruf)) {
+                    if (nim.value.match(validasiAngka)) {
+                        if (smstr.value.match(validasiAngka)) {
+                            if (parseInt(smstr.value) < 3) {
+                                alert('Mahasiswa Belum bisa mengajukan peminatan!\nHarus semester 2 ke atas!')
+                            } else {
+                                window.open(`result.html?nim=${nim.value}&nama=${nama.value}&semester=${smstr.value}&prodi=${prodi.value}&mk=${checkedValues}`, '_blank')
+                            }
+                        } else {
+                            alert('Format semester salah')
+                        }
+                    } else {
+                        alert('Format nim salah')
+                    }
+                } else {
+                    alert('Format nama salah')
+                }
+            } else {
+                alert('Harap pilih peminatan!');
+            }
+
+        });
+    </script>
+</body>
+
+</html>
